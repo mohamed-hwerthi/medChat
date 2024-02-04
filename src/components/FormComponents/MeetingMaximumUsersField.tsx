@@ -9,11 +9,11 @@ function MeetingMaximumUsersField({
   setSize: React.Dispatch<React.SetStateAction<number>>;
 }) {
   return (
-    <EuiFormRow label="Maximum People">
+    <EuiFormRow label="أقصى عدد من الناس">
       <EuiFieldNumber
         min={1}
         max={50}
-        placeholder="Maximum People"
+        placeholder="أقصى عدد من الناس"
         value={value}
         onChange={(e) => {
           if (!e.target.value.length || parseInt(e.target.value) === 0)

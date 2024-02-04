@@ -18,56 +18,73 @@ import useAuth from "../hooks/useAuth";
 
 import { meetingsRef } from "../utils/firebaseConfig";
 import { MeetingType } from "../utils/types";
+import { log } from "console";
 
 export default function Meeting() {
   useAuth();
   const userInfo = useAppSelector((zoom) => zoom.auth.userInfo);
   const [meetings, setMeetings] = useState<Array<MeetingType>>([]);
-
   useEffect(() => {
     const getMyMeetings = async () => {
       const firestoreQuery = query(meetingsRef);
       const fetchedMeetings = await getDocs(firestoreQuery);
+    
+      
       if (fetchedMeetings.docs.length) {
         const myMeetings: Array<MeetingType> = [];
-        fetchedMeetings.forEach((meeting) => {
-          const data = meeting.data() as MeetingType;
-          if (data.createdBy === userInfo?.uid)
-            myMeetings.push(meeting.data() as MeetingType);
-          else if (data.meetingType === "anyone-can-join")
-            myMeetings.push(meeting.data() as MeetingType);
-          else {
-            const index = data.invitedUsers.findIndex(
-              (user: string) => user === userInfo?.uid
-            );
-            if (index !== -1) {
-              myMeetings.push(meeting.data() as MeetingType);
-            }
+        fetchedMeetings.docs.forEach((doc) => {
+          const data = doc.data();
+          if (data.meetingType === "anyone-can-join ") {
+            myMeetings.push(data as MeetingType) ; 
+            
+            
+            
+          } 
+          if (data.createdBy== userInfo?.uid) {
+            myMeetings.push(data as MeetingType)
+            
           }
+          const invitedUsers: (string|undefined)[] = data.invitedUsers;
+const isUserInvited = invitedUsers?.includes(userInfo?.uid);
+
+if (isUserInvited) {
+  myMeetings.push(data as MeetingType);
+}
+          
+/*           if(data.invitedUsers[0]==userInfo?.uid){
+            myMeetings.push(data as MeetingType)
+          } */
+          
+
+          
+          
         });
+        
+       
+      
 
         setMeetings(myMeetings);
       }
     };
-    if (userInfo) getMyMeetings();
-  }, [userInfo]);
+     getMyMeetings();
+  }, []);
 
   const meetingColumns = [
     {
       field: "meetingName",
-      name: "Meeting Name",
+      name: "اسم الاجتماع      ",
     },
     {
       field: "meetingType",
-      name: "Meeting Type",
+      name: "نوع الاجتماع      ",
     },
     {
       field: "meetingDate",
-      name: "Meeting Date",
+      name: "تاريخ الاجتماع      ",
     },
     {
       field: "",
-      name: "Status",
+      name: "حالة",
 
       render: (meeting: MeetingType) => {
         if (meeting.status) {
@@ -78,23 +95,26 @@ export default function Meeting() {
                   to={`/join/${meeting.meetingId}`}
                   style={{ color: "black" }}
                 >
-                  Join Now
+                
+انظم  الآن
                 </Link>
               </EuiBadge>
             );
           } else if (
             moment(meeting.meetingDate).isBefore(moment().format("L"))
           ) {
-            return <EuiBadge color="default">Ended</EuiBadge>;
+            return <EuiBadge color="default">انتهت</EuiBadge>;
           } else if (moment(meeting.meetingDate).isAfter()) {
-            return <EuiBadge color="primary">Upcoming</EuiBadge>;
+            return <EuiBadge color="primary">
+            مازالت</EuiBadge>;
           }
-        } else return <EuiBadge color="danger">Cancelled</EuiBadge>;
+        } else return <EuiBadge color="danger">
+        ألغيت</EuiBadge>;
       },
     },
     {
       field: "meetingId",
-      name: "Copy Link",
+      name: "انسخ",
       width: "10%",
       render: (meetingId: string) => {
         return (

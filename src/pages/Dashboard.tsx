@@ -29,8 +29,8 @@ function Dashboard() {
           <EuiFlexItem>
             <EuiCard
               icon={<EuiImage src={dashboard1} alt="icon" size="5rem" />}
-              title={`Create Meeting`}
-              description="Create a new meeting and invite people."
+              title={`إنشاء اجتماع              `}
+              description="إنشاء اجتماع جديد ودعوة الأشخاص."
               onClick={() => navigate("/create")}
               paddingSize="xl"
             />
@@ -38,8 +38,9 @@ function Dashboard() {
           <EuiFlexItem>
             <EuiCard
               icon={<EuiImage src={dashboard2} alt="icon" size="100%" />}
-              title={`My Meetings`}
-              description="View your created meetings."
+              title={`اجتماعاتي
+              `}
+              description="عرض الاجتماعات التي تم إنشاؤها."
               onClick={() => navigate("/mymeetings")}
               paddingSize="xl"
             />
@@ -47,8 +48,8 @@ function Dashboard() {
           <EuiFlexItem>
             <EuiCard
               icon={<EuiImage src={dashboard3} alt="icon" size="5rem" />}
-              title={`Meetings`}
-              description="View the meetings that you are invited to."
+              title={`اجتماعات  `}
+              description="عرض الاجتماعات التي تمت دعوتك إليها."
               onClick={() => navigate("/meetings")}
               paddingSize="xl"
             />

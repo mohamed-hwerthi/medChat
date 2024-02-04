@@ -30,8 +30,9 @@ export default function CreateMeeting() {
           <EuiFlexItem>
             <EuiCard
               icon={<EuiImage src={meeting1} alt="icon" size="100%" />}
-              title={`Create 1 on 1 Meeting`}
-              description="Create a personal single person meeting."
+              title={`إنشاء اجتماع 1 في 1  `}
+              description="
+              قم بإنشاء اجتماع شخص مع شخص واحد فقط"
               onClick={() => navigate("/create1on1")}
               paddingSize="xl"
             />
@@ -39,8 +40,8 @@ export default function CreateMeeting() {
           <EuiFlexItem>
             <EuiCard
               icon={<EuiImage src={meeting2} alt="icon" size="100%" />}
-              title={`Create Video Conference`}
-              description="Invite multiple persons to the meeting."
+              title={`إنشاء مؤتمر فيديو `}
+              description="إنشاء مؤتمر فيديو              "
               onClick={() => navigate("/videoconference")}
               paddingSize="xl"
             />

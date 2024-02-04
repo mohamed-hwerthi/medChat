@@ -20,12 +20,13 @@ function CreateMeetingButtons({
           onClick={() => (isEdit ? closeFlyout!() : navigate("/"))}
           fill
         >
-          Cancel
+          
+          الغاء
         </EuiButton>
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
         <EuiButton type="submit" onClick={createMeeting} fill>
-          {isEdit ? "Edit Meeting" : "Create Meeting"}
+          {isEdit ? "تعديل" : "إنشاء اجتماع"}
         </EuiButton>
       </EuiFlexItem>
     </EuiFlexGroup>

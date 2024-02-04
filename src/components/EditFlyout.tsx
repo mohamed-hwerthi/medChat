@@ -80,7 +80,7 @@ export default function EditFlyout({
     delete editedMeeting.docId;
     const docRef = doc(firebaseDB, "meetings", meeting.docId!);
     await updateDoc(docRef, editedMeeting);
-    createToast({ title: "Meeting updated successfully.", type: "success" });
+    createToast({ title: "تم تحديث الاجتماع بنجاح.", type: "success" });
     closeFlyout(true);
   };
 
@@ -94,10 +94,10 @@ export default function EditFlyout({
       <EuiFlyoutBody>
         <EuiForm>
           <MeetingNameField
-            label="Meeting name"
+            label="اسم الاجتماع"
             isInvalid={showErrors.meetingName.show}
             error={showErrors.meetingName.message}
-            placeholder="Meeting name"
+            placeholder="اسم الاجتماع"
             value={meetingName}
             setMeetingName={setMeetingName}
           />
@@ -105,7 +105,7 @@ export default function EditFlyout({
             <MeetingMaximumUsersField value={size} setSize={setSize} />
           ) : (
             <MeetingUserField
-              label="Invite Users"
+              label="دعوة شخص "
               isInvalid={showErrors.meetingUsers.show}
               error={showErrors.meetingUsers.message}
               options={users}
@@ -115,14 +115,14 @@ export default function EditFlyout({
                 meetingType === "1-on-1" ? { asPlainText: true } : false
               }
               isClearable={false}
-              placeholder="Select a Users"
+              placeholder="حدد مستخدمًا"
             />
           )}
           <MeetingDateField selected={startDate} setStartDate={setStartDate} />
-          <EuiFormRow display="columnCompressedSwitch" label="Cancel Meeting">
+          <EuiFormRow display="columnCompressedSwitch" label="إلغاء الاجتماع">
             <EuiSwitch
               showLabel={false}
-              label="Cancel Meeting"
+              label="إلغاء الاجتماع"
               checked={status}
               onChange={(e) => setStatus(e.target.checked)}
             />

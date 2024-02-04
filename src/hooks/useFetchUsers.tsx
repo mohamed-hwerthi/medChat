@@ -17,6 +17,7 @@ function useFetchUsers() {
 
         data.forEach((user) => {
           const userData: UserType = user.data() as UserType;
+          console.log({userData})
           firebaseUsers.push({
             ...userData,
             label: userData.name,

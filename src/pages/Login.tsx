@@ -9,7 +9,7 @@ import {
   EuiText,
   EuiTextColor,
 } from "@elastic/eui";
-import logo from "../assets/logo.png";
+import logo3 from "../assets/logo3.jpg";
 import animation from "../assets/animation.gif";
 
 import React from "react";
@@ -66,17 +66,19 @@ function Login() {
                 <EuiImage src={animation} alt="logo" />
               </EuiFlexItem>
               <EuiFlexItem>
-                <EuiImage src={logo} alt="logo" size="230px" />
+                <EuiImage src={logo3} alt="logo" size="230px"  style={{borderRadius : "5px solid red"}}/>
                 <EuiSpacer size="xs" />
                 <EuiText textAlign="center" grow={false}>
                   <h3>
-                    <EuiTextColor>One Platform to</EuiTextColor>
-                    <EuiTextColor color="#0b5cff"> connect</EuiTextColor>
+                  <EuiTextColor>منجزة من طرف  </EuiTextColor>
+
+                    <EuiTextColor color="#0b5cff"> عمر الضوافي</EuiTextColor>
+
                   </h3>
                 </EuiText>
                 <EuiSpacer size="l" />
                 <EuiButton fill onClick={login}>
-                  Login with Google
+                تسجيل الدخول عبر جوجل
                 </EuiButton>
               </EuiFlexItem>
             </EuiFlexGroup>

@@ -50,7 +50,7 @@ export default function OneOnOneMeeting() {
     let errors = false;
     if (!meetingName.length) {
       showErrorsClone.meetingName.show = true;
-      showErrorsClone.meetingName.message = ["Please Enter Meeting Name"];
+      showErrorsClone.meetingName.message = ["الرجاء إدخال اسم الاجتماع      "];
       errors = true;
     } else {
       showErrorsClone.meetingName.show = false;
@@ -58,7 +58,7 @@ export default function OneOnOneMeeting() {
     }
     if (!selectedUser.length) {
       showErrorsClone.meetingUser.show = true;
-      showErrorsClone.meetingUser.message = ["Please Select a User"];
+      showErrorsClone.meetingUser.message = ["الرجاء تحديد مستخدم      "];
       errors = true;
     } else {
       showErrorsClone.meetingUser.show = false;
@@ -82,7 +82,7 @@ export default function OneOnOneMeeting() {
         status: true,
       });
       createToast({
-        title: "One on One Meeting Created Successfully",
+        title: "تم إنشاء الاجتماع الفردي بنجاح",
         type: "success",
       });
       navigate("/");
@@ -101,15 +101,15 @@ export default function OneOnOneMeeting() {
       <EuiFlexGroup justifyContent="center" alignItems="center">
         <EuiForm>
           <MeetingNameField
-            label="Meeting name"
+            label="اسم الاجتماع  "
             isInvalid={showErrors.meetingName.show}
             error={showErrors.meetingName.message}
-            placeholder="Meeting name"
+            placeholder="اسم الاجتماع            "
             value={meetingName}
             setMeetingName={setMeetingName}
           />
           <MeetingUserField
-            label="Invite User"
+            label="دعوة شخص "
             isInvalid={showErrors.meetingUser.show}
             error={showErrors.meetingUser.message}
             options={users}
@@ -117,7 +117,7 @@ export default function OneOnOneMeeting() {
             selectedOptions={selectedUser}
             singleSelection={{ asPlainText: true }}
             isClearable={false}
-            placeholder="Select a User"
+            placeholder="حدد مستخدمًا "
           />
           <MeetingDateField selected={startDate} setStartDate={setStartDate} />
           <EuiSpacer />

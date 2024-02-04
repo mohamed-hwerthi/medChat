@@ -59,19 +59,19 @@ export default function MyMeetings() {
   const meetingColumns = [
     {
       field: "meetingName",
-      name: "Meeting Name",
+      name: "اسم الاجتماع      ",
     },
     {
       field: "meetingType",
-      name: "Meeting Type",
+      name: "نوع الاجتماع      ",
     },
     {
       field: "meetingDate",
-      name: "Meeting Date",
+      name: "تاريخ الاجتماع      ",
     },
     {
       field: "",
-      name: "Status",
+      name: "حالة      ",
       render: (meeting: MeetingType) => {
         if (meeting.status) {
           if (meeting.meetingDate === moment().format("L")) {
@@ -81,23 +81,24 @@ export default function MyMeetings() {
                   to={`/join/${meeting.meetingId}`}
                   style={{ color: "black" }}
                 >
-                  Join Now
+                  
+                  انظم  الان
                 </Link>
               </EuiBadge>
             );
           } else if (
             moment(meeting.meetingDate).isBefore(moment().format("L"))
           ) {
-            return <EuiBadge color="default">Ended</EuiBadge>;
+            return <EuiBadge color="default">انتهت</EuiBadge>;
           } else if (moment(meeting.meetingDate).isAfter()) {
-            return <EuiBadge color="primary">Upcoming</EuiBadge>;
+            return <EuiBadge color="primary">مازالت</EuiBadge>;
           }
-        } else return <EuiBadge color="danger">Cancelled</EuiBadge>;
+        } else return <EuiBadge color="danger">ألغيت</EuiBadge>;
       },
     },
     {
       field: "",
-      name: "Edit",
+      name: "تعديل",
       width: "5%",
       render: (meeting: MeetingType) => {
         return (
@@ -117,7 +118,7 @@ export default function MyMeetings() {
     },
     {
       field: "meetingId",
-      name: "Copy Link",
+      name: "انسخ",
       width: "5%",
       render: (meetingId: string) => {
         return (

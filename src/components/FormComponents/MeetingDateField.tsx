@@ -10,7 +10,7 @@ function MeetingDateField({
   setStartDate: React.Dispatch<React.SetStateAction<moment.Moment>>;
 }) {
   return (
-    <EuiFormRow label="Set Meeting Date">
+    <EuiFormRow label=" تاريخ الاجتماع    ">
       <EuiDatePicker
         selected={selected}
         onChange={(date) => setStartDate(date!)}

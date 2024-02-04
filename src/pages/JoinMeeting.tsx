@@ -86,13 +86,13 @@ export default function JoinMeeting() {
   }, [params.id, user, userLoaded, createToast, navigate]);
   const myMeeting = async (element: any) => {
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
-      parseInt(process.env.REACT_APP_ZEGOCLOUD_APP_ID!),
-      process.env.REACT_APP_ZEGOCLOUD_SERVER_SECRET as string,
+      parseInt("1424191777"),
+     "e124e4271166840134b043b5f36c6ebe" , 
       params.id as string,
       user?.uid ? user.uid : generateMeetingID(),
       user?.displayName ? user.displayName : generateMeetingID()
     );
-    const zp = ZegoUIKitPrebuilt.create(kitToken);
+    const  zp = ZegoUIKitPrebuilt.create(kitToken);
 
     zp?.joinRoom({
       container: element,

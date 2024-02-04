@@ -5,7 +5,7 @@ export const getDashboardBreadCrumbs = (
   navigate: NavigateFunction
 ): Array<BreadCrumbsType> => [
   {
-    text: "Dashboard",
+    text: "لوحة التحكم",
   },
 ];
 
@@ -13,14 +13,14 @@ export const getCreateMeetingBreadCrumbs = (
   navigate: NavigateFunction
 ): Array<BreadCrumbsType> => [
   {
-    text: "Dashboard",
+    text: "لوحة التحكم",
     href: "#",
     onClick: () => {
       navigate("/");
     },
   },
   {
-    text: "Create Meeting",
+    text: "إنشاء اجتماع",
   },
 ];
 
@@ -28,21 +28,21 @@ export const getOneOnOneMeetingBreadCrumbs = (
   navigate: NavigateFunction
 ): Array<BreadCrumbsType> => [
   {
-    text: "Dashboard",
+    text: "لوحة التحكم",
     href: "#",
     onClick: () => {
       navigate("/");
     },
   },
   {
-    text: "Create Meeting",
+    text: "إنشاء اجتماع",
     href: "#",
     onClick: () => {
       navigate("/create");
     },
   },
   {
-    text: "Create 1 on 1 Meeting",
+    text: "إنشاء اجتماع وجها لوجه ",
   },
 ];
 
@@ -50,21 +50,21 @@ export const getVideoConferenceBreadCrumbs = (
   navigate: NavigateFunction
 ): Array<BreadCrumbsType> => [
   {
-    text: "Dashboard",
+    text: "لوحة التحكم",
     href: "#",
     onClick: () => {
       navigate("/");
     },
   },
   {
-    text: "Create Meeting",
+    text: "إنشاء اجتماع    ",
     href: "#",
     onClick: () => {
       navigate("/create");
     },
   },
   {
-    text: "Create Video Conference",
+    text: "إنشاء اجتماع جماعي    ",
   },
 ];
 
@@ -72,14 +72,14 @@ export const getMyMeetingsBreadCrumbs = (
   navigate: NavigateFunction
 ): Array<BreadCrumbsType> => [
   {
-    text: "Dashboard",
+    text: "لوحة التحكم",
     href: "#",
     onClick: () => {
       navigate("/");
     },
   },
   {
-    text: "My Meetings",
+    text: "اجتماعاتي",
   },
 ];
 
@@ -87,13 +87,13 @@ export const getMeetingsBreadCrumbs = (
   navigate: NavigateFunction
 ): Array<BreadCrumbsType> => [
   {
-    text: "Dashboard",
+    text:"لوحة التحكم",
     href: "#",
     onClick: () => {
       navigate("/");
     },
   },
   {
-    text: "Meetings",
+    text: "اجتماعات",
   },
 ];

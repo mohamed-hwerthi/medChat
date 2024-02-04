@@ -59,7 +59,7 @@ export default function VideoConference() {
     let errors = false;
     if (!meetingName.length) {
       showErrorsClone.meetingName.show = true;
-      showErrorsClone.meetingName.message = ["Please Enter Meeting Name"];
+      showErrorsClone.meetingName.message = ["  الرجاء إدخال اسم الاجتماع"];
       errors = true;
     } else {
       showErrorsClone.meetingName.show = false;
@@ -67,7 +67,7 @@ export default function VideoConference() {
     }
     if (!selectedUser.length && !anyoneCanJoin) {
       showErrorsClone.meetingUsers.show = true;
-      showErrorsClone.meetingUsers.message = ["Please Select a User"];
+      showErrorsClone.meetingUsers.message = ["الرجاء تحديد مستخدم      "];
       errors = true;
     } else {
       showErrorsClone.meetingUsers.show = false;
@@ -84,7 +84,7 @@ export default function VideoConference() {
         createdBy: uid,
         meetingId,
         meetingName,
-        meetingType: anyoneCanJoin ? "anyone-can-join" : "video-conference",
+        meetingType: anyoneCanJoin ? "  anyone-can-join " : "video conference",
         invitedUsers: anyoneCanJoin
           ? []
           : selectedUser.map((user: UserType) => user.uid),
@@ -94,8 +94,8 @@ export default function VideoConference() {
       });
       createToast({
         title: anyoneCanJoin
-          ? "Anyone can join meeting created successfully"
-          : "Video Conference created successfully.",
+          ? "يمكن لأي شخص الانضمام إلى الاجتماع الذي تم إنشاؤه بنجاح"
+          : "يمكن لأي شخص الانضمام إلى الاجتماع الذي تم إنشاؤه بنجاح",
         type: "success",
       });
       navigate("/");
@@ -113,10 +113,10 @@ export default function VideoConference() {
       <Header />
       <EuiFlexGroup justifyContent="center" alignItems="center">
         <EuiForm>
-          <EuiFormRow display="columnCompressedSwitch" label="Anyone can Join">
+          <EuiFormRow display="columnCompressedSwitch" label="يمكن لأي شخص الانضمام">
             <EuiSwitch
               showLabel={false}
-              label="Anyone Can Join"
+              label="يمكن لأي شخص الانضمام"
               checked={anyoneCanJoin}
               onChange={(e) => setAnyoneCanJoin(e.target.checked)}
               compressed
@@ -124,10 +124,10 @@ export default function VideoConference() {
           </EuiFormRow>
 
           <MeetingNameField
-            label="Meeting name"
+            label="اسم الاجتماع"
             isInvalid={showErrors.meetingName.show}
             error={showErrors.meetingName.message}
-            placeholder="Meeting name"
+            placeholder=" اسم الاجتماع"
             value={meetingName}
             setMeetingName={setMeetingName}
           />
@@ -136,14 +136,14 @@ export default function VideoConference() {
             <MeetingMaximumUsersField value={size} setSize={setSize} />
           ) : (
             <MeetingUserField
-              label="Invite Users"
+              label="دعوة المستخدمين              "
               isInvalid={showErrors.meetingUsers.show}
               error={showErrors.meetingUsers.message}
               options={users}
               onChange={onUserChange}
               selectedOptions={selectedUser}
               isClearable={false}
-              placeholder="Select a Users"
+              placeholder="  حدد مستخدمًا              "
             />
           )}
           <MeetingDateField selected={startDate} setStartDate={setStartDate} />
